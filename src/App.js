@@ -17,6 +17,11 @@ function App() {
   return (
     <div className="to-do-app">
 
+      {tasks.length === 0
+        ? <div>Enter a Task</div>  
+        : <div>You have Tasks To Do</div>
+      }
+
       {viewForm
         ? <TaskFrom viewForm={viewForm} setViewForm={setViewForm} tasks={tasks} setTaskList={setTaskList} />
         : <AddTaskButton viewForm={viewForm} setViewForm={setViewForm} />
