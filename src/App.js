@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+//import components
+import AddTaskButton from './components/buttons/AddTaskButton';
+import TaskFrom from './components/TaskForm';
 
 function App() {
+
+  //Declare new state variable
+  const [tasks, setTaskList] = useState([]);
+  const [viewForm, setViewForm] = useState(false)
+
+  useEffect(() => {
+    console.log(tasks)
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="to-do-app">
+
+      {viewForm
+        ? <TaskFrom viewForm={viewForm} setViewForm={setViewForm} tasks={tasks} setTaskList={setTaskList} />
+        : <AddTaskButton viewForm={viewForm} setViewForm={setViewForm} />
+      }
+
     </div>
   );
 }
