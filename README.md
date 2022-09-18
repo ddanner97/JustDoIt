@@ -9,6 +9,7 @@
 
 
 ### `Component hierarchy and Design`
+
 <img src="images/to-do-list-architecture.png"> 
 
 ### `Build Details`
