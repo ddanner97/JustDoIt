@@ -1,26 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import { readData } from './utils';
+import { updateData } from './utils';
 
 //import components
 import AddTaskButton from './components/buttons/AddTaskButton';
-import TaskFrom from './components/TaskForm';
+import TaskForm from './components/TaskForm';
 import TaskCard from './components/TaskCard';
 
 function App() {
 
   //Declare new state variable
   const [taskList, setTaskList] = useState([]);
-  const [viewForm, setViewForm] = useState(false)
-  //We will get rid of apiKey
-  const [apiKey] = useState("$2b$10$YtglDrWiRzphuz5Z9vlh.uA/Ak0ZnHcvSIAUZr0y5B5SK.E/KPFbe")
-
-  useEffect(() => {
-  
-  });
+  const [viewForm, setViewForm] = useState(false);
 
   //Methods
   const completeTask = (id) => {
 
+    if(taskList.length === 1){
+
+      setTaskList([{}])
+      updateData(taskList)
+
+    } else {
+
+      //create new array and slice element out
+      let arr = taskList
+      arr.splice(id, 1)
+
+      //pass new array to updateData PUT call
+      updateData(arr).then((res) => console.log(res))
+
+    }
   }
+
+  useEffect(() => {
+    if (!viewForm){
+      readData().then((res) => {
+        setTaskList(res.record)
+      })
+    }
+  }, [viewForm]);
 
   return (
     <div className="to-do-app">
@@ -32,14 +51,14 @@ function App() {
           <div className="tasks-display-container">
             {/* Render tasks */}
             {taskList.map((task, index) => 
-              <TaskCard task={task} key={index} id={index} taskList={taskList} setTaskList={setTaskList} completeTask={completeTask} />
+              <TaskCard readData={readData} task={task} key={index} id={index} taskList={taskList} setTaskList={setTaskList} completeTask={completeTask} />
             )}
           </div>
       }
 
       {/* Conditionally render AddTaskButton or TaskForm */}
       {viewForm 
-        ? <TaskFrom apiKey={apiKey} viewForm={viewForm} setViewForm={setViewForm} taskList={taskList} setTaskList={setTaskList} />
+        ? <TaskForm viewForm={viewForm} setViewForm={setViewForm} taskList={taskList} setTaskList={setTaskList} />
         : <AddTaskButton viewForm={viewForm} setViewForm={setViewForm} />
       }
 

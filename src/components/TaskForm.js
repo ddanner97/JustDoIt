@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { updateData } from '../utils'
 
 // import components
 import CancelButton from './buttons/CancelButton'
@@ -25,12 +26,17 @@ function TaskFrom(props) {
             return alert('Enter a Task Name')
         }
 
-        //POST call
-        props.setTaskList(arr => [...arr, {
+        //Create new task object and push to taskList
+        let obj = {
             taskName: taskName,
             taskDescription: taskDescription,
             taskPriority: taskPriority
-        }])
+        }
+
+        props.taskList.push(obj)
+
+        //PUT API call
+        updateData(props.taskList)
 
         //clearState
         setTaskName('')
