@@ -25,7 +25,7 @@ function TaskFrom(props) {
             return alert('Enter a Task Name')
         }
 
-        //save task object to taskList in parent
+        //POST call
         props.setTaskList(arr => [...arr, {
             taskName: taskName,
             taskDescription: taskDescription,
