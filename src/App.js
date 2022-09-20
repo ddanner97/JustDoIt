@@ -12,46 +12,47 @@ function App() {
   //Declare new state variable
   const [taskList, setTaskList] = useState([]);
   const [viewForm, setViewForm] = useState(false);
+  const [update, setUpdateData] = useState(false);
 
-  //Methods
-  const completeTask = (id) => {
-
-    if(taskList.length === 1){
-
-      setTaskList([{}])
-      updateData(taskList)
-
-    } else {
-
-      //create new array and slice element out
-      let arr = taskList
-      arr.splice(id, 1)
-
-      //pass new array to updateData PUT call
-      updateData(arr).then((res) => console.log(res))
-
-    }
+  const completeTask = async (id) => {
+    setTaskList(taskList.filter((task, index) => index != id+1))
+    setUpdateData(true)
   }
 
   useEffect(() => {
     if (!viewForm){
-      readData().then((res) => {
+      readData()
+      .then((res) => {
         setTaskList(res.record)
-      })
+      }) 
     }
   }, [viewForm]);
+
+  useEffect(() => {
+    if (update) {
+      updateData(taskList).then(() => setUpdateData(false))
+    }
+  }, [update])
 
   return (
     <div className="to-do-app">
       <h2>Inbox</h2>
 
       {/* Conditionally render tasks if tasks array isn't empty */}
-      {taskList.length === 0 ? <div>Enter a Task</div>  
+      {taskList.length === 1 ? <div>Enter a Task</div>  
         : 
           <div className="tasks-display-container">
             {/* Render tasks */}
-            {taskList.map((task, index) => 
-              <TaskCard readData={readData} task={task} key={index} id={index} taskList={taskList} setTaskList={setTaskList} completeTask={completeTask} />
+            {taskList.slice(1).map((task, index) => 
+              <TaskCard 
+                readData={readData} 
+                task={task} 
+                key={index} 
+                id={index} 
+                taskList={taskList} 
+                setTaskList={setTaskList} 
+                completeTask={completeTask} 
+              />
             )}
           </div>
       }
