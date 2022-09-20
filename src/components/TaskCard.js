@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { readData, updateData } from '../utils'
+import EditTaskForm from './EditTaskForm'
 
 function TaskCard(props) {
+
+  const [viewEditForm, setViewEditForm] = useState(false);
+
   return (
     <div className="task-card">
-        <input type="radio" onChange={() => props.setTaskList(props.taskList.splice(props.id, 1))} />
-        <div className="task-card-name">{props.task.taskName}</div>
-        <div className="task-card-name">{props.task.taskDescription}</div>
-        <div className="task-card-name">{props.task.taskPriority}</div>
-        <div className="task-card-name">{props.id}</div>
-        <br></br>
+        {/* Conditionally render AddTaskButton or TaskForm */}
+        {!viewEditForm 
+          ? 
+            <div>
+              <input type="radio" onChange={() => props.completeTask(props.id)} />
+              <button onClick={() => setViewEditForm(true)}><i className="fa-solid fa-pen-to-square"></i></button>
+              <div className="task-card-name">{props.task.taskName}</div>
+              <div className="task-card-name">{props.task.taskDescription}</div>
+              <div className="task-card-name">{props.task.taskPriority}</div>
+              <br></br>
+            </div>
+          : <EditTaskForm 
+              id={props.id}
+              viewForm={viewEditForm} 
+              setViewForm={setViewEditForm} 
+              taskName={props.task.taskName} 
+              taskDescription={props.task.taskDescription} 
+              taskPriority={props.task.taskPriority}
+              taskList={props.taskList}
+              setTaskList={props.setTaskList}
+            />
+        }
     </div>
   )
 }

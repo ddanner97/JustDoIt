@@ -8,12 +8,12 @@ import TaskDescription from './inputs/TaskDescriptionInput'
 import TaskNameInput from './inputs/TaskNameInput'
 import TaskPriorityInput from './inputs/TaskPriorityInput'
 
-function TaskFrom(props) {
+function EditTaskForm(props) {
 
     // state variables
-    const [taskName, setTaskName] = useState('')
-    const [taskDescription, setTaskDescription] = useState('')
-    const [taskPriority, setTaskPriority] = useState('one')
+    const [taskName, setTaskName] = useState(props.taskName)
+    const [taskDescription, setTaskDescription] = useState(props.taskDescription)
+    const [taskPriority, setTaskPriority] = useState(props.taskPriority)
 
     const onSave = () => {
 
@@ -22,14 +22,16 @@ function TaskFrom(props) {
             return alert('Enter a Task Name')
         }
 
+        let arr = props.taskList
+        
         //Create new task object and push to taskList
-        let obj = {
+        arr[props.id + 1] = {
             taskName: taskName,
             taskDescription: taskDescription,
-            taskPriority: taskPriority
+            taskPriority: taskPriority,
         }
 
-        props.taskList.push(obj)
+        props.setTaskList(arr)
 
         //PUT API call
         updateData(props.taskList)
@@ -57,4 +59,4 @@ function TaskFrom(props) {
     )
 }
 
-export default TaskFrom
+export default EditTaskForm

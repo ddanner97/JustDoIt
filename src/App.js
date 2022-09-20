@@ -1,45 +1,65 @@
 import React, { useState, useEffect } from 'react';
+import { readData } from './utils';
+import { updateData } from './utils';
 
 //import components
 import AddTaskButton from './components/buttons/AddTaskButton';
-import TaskFrom from './components/TaskForm';
+import TaskForm from './components/TaskForm';
 import TaskCard from './components/TaskCard';
 
 function App() {
 
   //Declare new state variable
   const [taskList, setTaskList] = useState([]);
-  const [viewForm, setViewForm] = useState(false)
-  //We will get rid of apiKey
-  const [apiKey] = useState("$2b$10$YtglDrWiRzphuz5Z9vlh.uA/Ak0ZnHcvSIAUZr0y5B5SK.E/KPFbe")
+  const [viewForm, setViewForm] = useState(false);
+  const [update, setUpdateData] = useState(false);
+
+  const completeTask = async (id) => {
+    setTaskList(taskList.filter((task, index) => index != id+1))
+    setUpdateData(true)
+  }
 
   useEffect(() => {
-  
-  });
+    if (!viewForm){
+      readData()
+      .then((res) => {
+        setTaskList(res.record)
+      }) 
+    }
+  }, [viewForm]);
 
-  //Methods
-  const completeTask = (id) => {
-
-  }
+  useEffect(() => {
+    if (update) {
+      updateData(taskList).then(() => setUpdateData(false))
+    }
+  }, [update])
 
   return (
     <div className="to-do-app">
       <h2>Inbox</h2>
 
       {/* Conditionally render tasks if tasks array isn't empty */}
-      {taskList.length === 0 ? <div>Enter a Task</div>  
+      {taskList.length === 1 ? <div>Enter a Task</div>  
         : 
           <div className="tasks-display-container">
             {/* Render tasks */}
-            {taskList.map((task, index) => 
-              <TaskCard task={task} key={index} id={index} taskList={taskList} setTaskList={setTaskList} completeTask={completeTask} />
+            {taskList.slice(1).map((task, index) => 
+              <TaskCard 
+                readData={readData} 
+                task={task} 
+                key={index} 
+                id={index} 
+                taskList={taskList} 
+                setTaskList={setTaskList} 
+                completeTask={completeTask} 
+              />
             )}
           </div>
       }
 
       {/* Conditionally render AddTaskButton or TaskForm */}
       {viewForm 
-        ? <TaskFrom apiKey={apiKey} viewForm={viewForm} setViewForm={setViewForm} taskList={taskList} setTaskList={setTaskList} />
+        ? <TaskForm viewForm={viewForm} setViewForm={setViewForm} taskList={taskList} setTaskList={setTaskList} />
         : <AddTaskButton viewForm={viewForm} setViewForm={setViewForm} />
       }
 
