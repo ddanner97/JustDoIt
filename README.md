@@ -1,4 +1,4 @@
-# Minimalist To Do App - Inspired by ToDoIst and Shia Labeouf [V1 - Sept 12, 2022]
+# Minimalist To Do App - Inspired by ToDoIst and Shia 
 
 ![Alt Text](https://media.giphy.com/media/GcSqyYa2aF8dy/giphy.gif)
 
