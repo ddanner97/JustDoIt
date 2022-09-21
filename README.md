@@ -3,6 +3,7 @@
 
 
 [Click here to use the application]
+![Alt Text](https://media.giphy.com/media/GcSqyYa2aF8dy/giphy.gif)
 
 ## Project Description
 
