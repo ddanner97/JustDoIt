@@ -1,9 +1,8 @@
-# Minimalist Weather App [V1 - Sept 12, 2022]
+# Minimalist To Do App - Inspired by ToDoIst and Shia Labeouf [V1 - Sept 12, 2022]
 
-
+![Alt Text](https://media.giphy.com/media/GcSqyYa2aF8dy/giphy.gif)
 
 [Click here to use the application]
-![Alt Text](https://media.giphy.com/media/GcSqyYa2aF8dy/giphy.gif)
 
 ## Project Description
 
