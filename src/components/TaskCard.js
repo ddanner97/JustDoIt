@@ -11,10 +11,12 @@ function TaskCard(props) {
         {/* Conditionally render AddTaskButton or TaskForm */}
         {!viewEditForm 
           ? 
-            <div className={"w-656 bg-white ml-266 border-dashed align-top px-10 py-80px my-2 mx-2 flex flex-row"}>
-              <input className={"scale-150 border-gray"} type="radio" onChange={() => props.completeTask(props.id)} />
-              <div className="task-card-name px-6">{props.task.taskName}</div>
-              <button onClick={() => setViewEditForm(true)}><i className="fa-solid fa-pen-to-square "></i></button>
+            <div className={"w-656 bg-white ml-266 border-dashed align-top px-10 py-80px my-2 mx-2"}>
+              <div className={"flex flex-row"}>
+                <input className={"scale-150 border-gray"} type="radio" onChange={() => props.completeTask(props.id)} />
+                <div className="task-card-name px-6 grow">{props.task.taskName}</div>
+                <button onClick={() => setViewEditForm(true)}><i className="fa-solid fa-pen-to-square place-self-end"></i></button>
+              </div>
             </div>
           : <EditTaskForm 
               id={props.id}

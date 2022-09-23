@@ -43,9 +43,9 @@ function App() {
       </div>
 
       {/* Conditionally render tasks if tasks array isn't empty */}
-      {taskList.length === 1 ? <div className="">Enter a Task</div>  
+      {taskList.length === 1 ? <div className="grow">Enter a Task</div>  
         : 
-          <div className="tasks-display-container grid row-auto items-center">
+          <div className="tasks-display-container grow grid row-auto items-center">
             {/* Render tasks */}
             {taskList.slice(1).map((task, index) => 
               <TaskCard 
