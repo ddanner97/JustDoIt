@@ -48,10 +48,12 @@ function EditTaskForm(props) {
 
     return (
 
-        <div className="task-form">
+        <div className="task-form w-656 bg-secondary ml-266 border-dashed align-top px-20 py-80px">
             <TaskNameInput taskName={taskName} setTaskName={setTaskName} />
-            <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
-            <TaskPriorityInput taskPriority={taskPriority} setTaskPriority={setTaskPriority} />
+            <div className={"flex flex-row"}>
+                <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
+                <TaskPriorityInput taskPriority={taskPriority} setTaskPriority={setTaskPriority} />
+            </div>
             <CancelButton viewForm={props.viewForm} setViewForm={props.setViewForm} />
             <SaveTaskButton onSave={onSave} />
         </div>
