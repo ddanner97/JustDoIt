@@ -46,12 +46,16 @@ function TaskFrom(props) {
 
     return (
 
-        <div className="task-form">
+        <div className="task-form bg-secondary">
             <TaskNameInput taskName={taskName} setTaskName={setTaskName} />
-            <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
-            <TaskPriorityInput taskPriority={taskPriority} setTaskPriority={setTaskPriority} />
-            <CancelButton viewForm={props.viewForm} setViewForm={props.setViewForm} />
-            <SaveTaskButton onSave={onSave} />
+            <div className={"flex flex-row"}>
+                <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
+                <TaskPriorityInput taskPriority={taskPriority} setTaskPriority={setTaskPriority} />
+            </div>
+            <div className="">
+                <CancelButton viewForm={props.viewForm} setViewForm={props.setViewForm} />
+                <SaveTaskButton onSave={onSave} />
+            </div>
         </div>
 
     )

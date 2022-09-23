@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { readData } from './utils';
 import { updateData } from './utils';
+import "./styles/main.css"
 
 //import components
 import AddTaskButton from './components/buttons/AddTaskButton';
@@ -35,13 +36,16 @@ function App() {
   }, [update])
 
   return (
-    <div className="to-do-app">
-      <h2>Inbox</h2>
+    <div className="to-do-app flex flex-col">
+      <div className={"bg-primary w-full text-white overflow-hidden flex flex-row"}>
+        <i class="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
+        <h2 className="py-2.5 indent-4 text-3xl">Inbox</h2>
+      </div>
 
       {/* Conditionally render tasks if tasks array isn't empty */}
-      {taskList.length === 1 ? <div>Enter a Task</div>  
+      {taskList.length === 1 ? <div className="">Enter a Task</div>  
         : 
-          <div className="tasks-display-container">
+          <div className="tasks-display-container grid row-auto items-center">
             {/* Render tasks */}
             {taskList.slice(1).map((task, index) => 
               <TaskCard 
