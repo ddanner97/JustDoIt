@@ -48,7 +48,7 @@ function EditTaskForm(props) {
 
     return (
 
-        <div className="task-form w-656 bg-secondary ml-266 border-dashed align-top px-20 py-80px">
+        <div className="task-form bg-secondary h-screen">
             <TaskNameInput taskName={taskName} setTaskName={setTaskName} />
             <div className={"flex flex-row"}>
                 <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
