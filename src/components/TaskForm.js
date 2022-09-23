@@ -31,6 +31,8 @@ function TaskFrom(props) {
 
         props.taskList.push(obj)
 
+        props.setTaskList(props.taskList)
+
         //PUT API call
         updateData(props.taskList)
 

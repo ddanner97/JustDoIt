@@ -21,12 +21,10 @@ function App() {
   }
 
   useEffect(() => {
-    if (!viewForm){
-      readData()
-      .then((res) => {
-        setTaskList(res.record)
-      }) 
-    }
+    readData()
+    .then((res) => {
+      setTaskList(res.record)
+    }) 
   }, [viewForm]);
 
   useEffect(() => {
@@ -38,7 +36,7 @@ function App() {
   return (
     <div className="to-do-app flex flex-col">
       <div className={"bg-primary w-full text-white overflow-hidden flex flex-row"}>
-        <i class="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
+        <i className="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
         <h2 className="py-2.5 indent-4 text-3xl">Inbox</h2>
       </div>
 
