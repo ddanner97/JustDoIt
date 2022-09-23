@@ -21,13 +21,10 @@ function App() {
   }
 
   useEffect(() => {
-    if (!viewForm){
-      readData()
-      .then((res) => {
-        setTaskList(res.record)
-      }) 
-    }
-  }, [viewForm]);
+    readData()
+    .then((res) => {setTaskList(res.record)})
+    
+  }, []);
 
   useEffect(() => {
     if (update) {
