@@ -54,8 +54,11 @@ function EditTaskForm(props) {
                 <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
                 <TaskPriorityInput taskPriority={taskPriority} setTaskPriority={setTaskPriority} />
             </div>
-            <CancelButton viewForm={props.viewForm} setViewForm={props.setViewForm} />
-            <SaveTaskButton onSave={onSave} />
+            <div className="flex flex-row mx-5">
+                <div className="grow"></div>
+                <CancelButton viewForm={props.viewForm} setViewForm={props.setViewForm} />
+                <SaveTaskButton onSave={onSave} />  
+            </div>
         </div>
 
     )
