@@ -11,9 +11,10 @@
 ### `Component hierarchy and Design`
 
 <img src="images/to-do-list-architecture.png"> 
+<img src="images/JustDoIt.png">
 
 ### `Build Details`
-For more details on the steps towards building this project, including component logic and some of the blocker's I faced and how I solved them [click here to access my Notion Document](https://stripe-parade-9b5.notion.site/Weather-App-cf7c602efeae40fa9d6b6fe8b46256be)
+For more details on the steps towards building this project, including component logic and some of the blocker's I faced and how I solved them [click here to access my Notion Document(https://www.notion.so/To-Do-List-App-3617375c1a5048f396fb2ccc0c3e3e02)
 
 ### `npm start`
 
