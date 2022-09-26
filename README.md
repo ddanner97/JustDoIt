@@ -1,11 +1,12 @@
 # Minimalist To Do App - Inspired by ToDoIst and Shia 
+This simple to-do-list app allows a user to manage task's with basic **CRUD** functionality
 
 ![Alt Text](https://media.giphy.com/media/GcSqyYa2aF8dy/giphy.gif)
 
-[Click here to use the application]
+[Click here to use the application](https://just-do-it-6wsb.vercel.app)
 
 ## Project Description
-
+This project is a frontend application built using **React.JS** and **Tailwind CSS** while leveraging for JSONbin.io for data storage. My primary goal with this app was to learn more about using React hooks and practice pushing and retrieving data from an API. 
 
 
 ### `Component hierarchy and Design`
