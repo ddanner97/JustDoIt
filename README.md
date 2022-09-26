@@ -15,7 +15,7 @@ This project is a frontend application built using **React.JS** and **Tailwind C
 <img src="images/JustDoIt.jpg">
 
 ### `Build Details`
-For more details on the steps towards building this project, including component logic and some of the blocker's I faced and how I solved them [click here to access my Notion Document(https://www.notion.so/To-Do-List-App-3617375c1a5048f396fb2ccc0c3e3e02)
+For more details on the steps towards building this project, including component logic and some of the blocker's I faced and how I solved them [click here to access my Notion Document](https://www.notion.so/To-Do-List-App-3617375c1a5048f396fb2ccc0c3e3e02)
 
 ### `npm start`
 
