@@ -34,30 +34,32 @@ function App() {
   }, [update])
 
   return (
-    <div className="to-do-app flex flex-col">
-      <div className={"bg-primary w-full text-white overflow-hidden flex flex-row"}>
+    <div className="to-do-app h-screen flex flex-col">
+      <div className={"bg-primary w-full text-white flex flex-row basis-0"}>
         <i className="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
         <h2 className="py-2.5 indent-4 text-3xl">Inbox</h2>
       </div>
 
-      {/* Conditionally render tasks if tasks array isn't empty */}
-      {taskList.length === 1 ? <div className="grow">Enter a Task</div>  
-        : 
-          <div className="tasks-display-container my-2 grow grid row-auto items-center">
-            {/* Render tasks */}
-            {taskList.slice(1).map((task, index) => 
-              <TaskCard 
-                readData={readData} 
-                task={task} 
-                key={index} 
-                id={index} 
-                taskList={taskList} 
-                setTaskList={setTaskList} 
-                completeTask={completeTask} 
-              />
-            )}
-          </div>
-      }
+      <div className="grow">
+        {/* Conditionally render tasks if tasks array isn't empty */}
+        {taskList.length === 1 ? <div> Add Task</div>  
+          : 
+            <div className="tasks-display-container my-2 grid row-auto items-center">
+              {/* Render tasks */}
+              {taskList.slice(1).map((task, index) => 
+                <TaskCard 
+                  readData={readData} 
+                  task={task} 
+                  key={index} 
+                  id={index} 
+                  taskList={taskList} 
+                  setTaskList={setTaskList} 
+                  completeTask={completeTask} 
+                />
+              )}
+            </div>
+        }
+      </div>
 
       {/* Conditionally render AddTaskButton or TaskForm */}
       {viewForm 

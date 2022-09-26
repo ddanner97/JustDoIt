@@ -54,7 +54,8 @@ function TaskFrom(props) {
                 <TaskDescription taskDescription={taskDescription} setTaskDescription={setTaskDescription} />
                 <TaskPriorityInput taskPriority={taskPriority} setTaskPriority={setTaskPriority} />
             </div>
-            <div className="">
+            <div className="flex flex-row my-5">
+                <div className="grow"></div>
                 <CancelButton viewForm={props.viewForm} setViewForm={props.setViewForm} />
                 <SaveTaskButton onSave={onSave} />
             </div>
