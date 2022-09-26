@@ -11,7 +11,7 @@
 ### `Component hierarchy and Design`
 
 <img src="images/to-do-list-architecture.png"> 
-<img src="images/JustDoIt-2.jpg">
+<img src="images/JustDoIt.jpg">
 
 ### `Build Details`
 For more details on the steps towards building this project, including component logic and some of the blocker's I faced and how I solved them [click here to access my Notion Document(https://www.notion.so/To-Do-List-App-3617375c1a5048f396fb2ccc0c3e3e02)
