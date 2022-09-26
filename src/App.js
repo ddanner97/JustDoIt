@@ -34,7 +34,7 @@ function App() {
   }, [update])
 
   return (
-    <div className="to-do-app h-screen flex flex-col">
+    <div className="to-do-app min-h-screen flex flex-col">
       <div className={"bg-primary w-full text-white flex flex-row basis-0"}>
         <i className="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
         <h2 className="py-2.5 indent-4 text-3xl">Inbox</h2>
