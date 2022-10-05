@@ -7,12 +7,15 @@ import "./styles/main.css"
 import AddTaskButton from './components/buttons/AddTaskButton';
 import TaskForm from './components/TaskForm';
 import TaskCard from './components/TaskCard';
+import Sidebar from './layout/Sidebar';
+import Header from './components/Header';
 
 function App() {
 
   //Declare new state variable
   const [taskList, setTaskList] = useState([]);
   const [viewForm, setViewForm] = useState(false);
+  const [viewSidebar, setViewSideBar] = useState(true);
   const [update, setUpdateData] = useState(false);
 
   const completeTask = async (id) => {
@@ -25,7 +28,7 @@ function App() {
     .then((res) => {
       setTaskList(res.record)
     }) 
-  }, [viewForm]);
+  }, []);
 
   useEffect(() => {
     if (update) {
@@ -35,30 +38,34 @@ function App() {
 
   return (
     <div className="to-do-app min-h-screen flex flex-col">
-      <div className={"bg-primary w-full text-white flex flex-row basis-0"}>
-        <i className="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
-        <h2 className="py-2.5 indent-4 text-3xl">Inbox</h2>
-      </div>
+      <Header viewSidebar={viewSidebar} setViewSideBar={setViewSideBar} viewForm={viewForm} setViewForm={setViewForm}/>
 
-      <div className="grow">
-        {/* Conditionally render tasks if tasks array isn't empty */}
-        {taskList.length === 1 ? <div> Add Task</div>  
-          : 
-            <div className="tasks-display-container my-2 grid row-auto items-center">
-              {/* Render tasks */}
-              {taskList.slice(1).map((task, index) => 
-                <TaskCard 
-                  readData={readData} 
-                  task={task} 
-                  key={index} 
-                  id={index} 
-                  taskList={taskList} 
-                  setTaskList={setTaskList} 
-                  completeTask={completeTask} 
-                />
-              )}
-            </div>
+      <div className="main-container grow flex">
+        {/* Conditionally render sidebar */}
+        {viewSidebar &&
+          <Sidebar/>
         }
+
+        <div className="task-container grow">
+          {/* Conditionally render tasks if tasks array isn't empty */}
+          {taskList.length === 1 ? <div> Add Task</div>  
+            : 
+              <div className="tasks-display-container my-2 grid row-auto items-center">
+                {/* Render tasks */}
+                {taskList.slice(1).map((task, index) => 
+                  <TaskCard 
+                    readData={readData} 
+                    task={task} 
+                    key={index} 
+                    id={index} 
+                    taskList={taskList} 
+                    setTaskList={setTaskList} 
+                    completeTask={completeTask} 
+                  />
+                )}
+              </div>
+          }
+        </div>
       </div>
 
       {/* Conditionally render AddTaskButton or TaskForm */}
