@@ -11,7 +11,7 @@ function TaskCard(props) {
         {/* Conditionally render AddTaskButton or TaskForm */}
         {!viewEditForm 
           ? 
-            <div className={"bg-white align-top px-10 py-80px my-2"}>
+            <div className={"bg-white align-top px-10 my-2"}>
               <div className={"flex flex-row"}>
                 <input className={"scale-150 border-gray"} type="radio" onChange={() => props.completeTask(props.id)} />
                 <div className="task-card-name px-6 grow">{props.task.taskName}</div>

@@ -50,19 +50,37 @@ function App() {
           {/* Conditionally render tasks if tasks array isn't empty */}
           {taskList.length === 1 ? <div> Add Task</div>  
             : 
-              <div className="tasks-display-container my-2 grid row-auto items-center">
-                {/* Render tasks */}
-                {taskList.slice(1).map((task, index) => 
-                  <TaskCard 
-                    readData={readData} 
-                    task={task} 
-                    key={index} 
-                    id={index} 
-                    taskList={taskList} 
-                    setTaskList={setTaskList} 
-                    completeTask={completeTask} 
-                  />
-                )}
+              <div className="tasks-display-container ss:max-w-xl sm:max-w-2xl md:max-w-3xl my-2 mx-auto">
+                {/* This will be a conditionally rendered header eventually */}
+                <div className="flex mx-10">
+                  <h1 className="text-2xl font-semibold grow">Inbox</h1>
+                  <div>
+                    <button className="mx-2">
+                      <i class="fa-regular fa-message text-2xl text-gray-400"></i>
+                    </button>
+                    <button className="mx-2">
+                      <i class="fa-solid fa-sliders text-2xl text-gray-400"></i>
+                    </button>
+                    <button className="mx-2">
+                      <i class="fa-solid fa-ellipsis text-2xl text-gray-400"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid row-auto">
+                  {/* Render tasks */}
+                  {taskList.slice(1).map((task, index) => 
+                    <TaskCard 
+                      readData={readData} 
+                      task={task} 
+                      key={index} 
+                      id={index} 
+                      taskList={taskList} 
+                      setTaskList={setTaskList} 
+                      completeTask={completeTask} 
+                    />
+                  )}
+                </div>
               </div>
           }
         </div>

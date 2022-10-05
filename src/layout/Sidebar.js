@@ -2,11 +2,11 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div className="sidebar">
-        <ul className="sidebar__generic">
+    <div className="sidebar bg-slate-100 h-screen lg:px-20">
+        <ul className="sidebar__generic mx-auto">
             <li>
                 <span>
-                    <i className="py-2.5 indent-8 fa-solid fa-inbox text-3xl"></i>
+                    <i className="fa-solid fa-inbox"></i>
                 </span>
                 <span>Inbox</span>
             </li>
