@@ -15,7 +15,7 @@ function App() {
   //Declare new state variable
   const [taskList, setTaskList] = useState([]);
   const [viewForm, setViewForm] = useState(false);
-  const [viewSidebar, setViewSideBar] = useState(true);
+  const [viewSidebar, setViewSideBar] = useState(false);
   const [update, setUpdateData] = useState(false);
 
   const completeTask = async (id) => {
@@ -70,7 +70,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="grid row-auto">
+                <div className="grid row-auto my-2">
                   {/* Render tasks */}
                   {taskList.slice(1).map((task, index) => 
                     <TaskCard 
