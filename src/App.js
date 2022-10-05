@@ -46,23 +46,26 @@ function App() {
           <Sidebar/>
         }
 
-        <div className="task-container grow">
+        <div className="task-container grow my-4">
           {/* Conditionally render tasks if tasks array isn't empty */}
           {taskList.length === 1 ? <div> Add Task</div>  
             : 
-              <div className="tasks-display-container ss:max-w-xl sm:max-w-2xl md:max-w-3xl my-2 mx-auto">
+              <div className="tasks-display-container sm:max-w-2xl md:max-w-3xl md:text-xl my-2 mx-auto">
                 {/* This will be a conditionally rendered header eventually */}
                 <div className="flex mx-10">
-                  <h1 className="text-2xl font-semibold grow">Inbox</h1>
+                  <h1 className="font-semibold grow">Inbox</h1>
+
                   <div>
                     <button className="mx-2">
-                      <i class="fa-regular fa-message text-2xl text-gray-400"></i>
+                      <i class="fa-regular fa-message text-gray-400"></i>
                     </button>
+
                     <button className="mx-2">
-                      <i class="fa-solid fa-sliders text-2xl text-gray-400"></i>
+                      <i class="fa-solid fa-sliders text-gray-400"></i>
                     </button>
+                    
                     <button className="mx-2">
-                      <i class="fa-solid fa-ellipsis text-2xl text-gray-400"></i>
+                      <i class="fa-solid fa-ellipsis text-gray-400"></i>
                     </button>
                   </div>
                 </div>
@@ -87,9 +90,8 @@ function App() {
       </div>
 
       {/* Conditionally render AddTaskButton or TaskForm */}
-      {viewForm 
-        ? <TaskForm viewForm={viewForm} setViewForm={setViewForm} taskList={taskList} setTaskList={setTaskList} />
-        : <AddTaskButton viewForm={viewForm} setViewForm={setViewForm} />
+      {viewForm && <TaskForm viewForm={viewForm} setViewForm={setViewForm} taskList={taskList} setTaskList={setTaskList} /> 
+        // : <AddTaskButton viewForm={viewForm} setViewForm={setViewForm} />
       }
 
     </div>
