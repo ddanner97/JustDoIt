@@ -3,8 +3,10 @@ import React from 'react'
 function Sidebar() {
   return (
     <div className="sidebar bg-slate-100 h-screen px-24 absolute z-10 drop-shadow-2xl
-    
-        md:px-18 
+        sm:drop-shadow-none 
+        sm:static
+
+        md:px-18
         
         lg:px-24
     ">
