@@ -6,7 +6,7 @@ This simple to-do-list app allows a user to manage task's with basic **CRUD** fu
 [Click here to use the application](https://just-do-it-6wsb.vercel.app)
 
 ## Project Description
-This project is a frontend application built using **React.JS** and **Tailwind CSS** while leveraging for JSONbin.io for data storage. My primary goal with this app was to learn more about using React hooks and practice pushing and retrieving data from an API. 
+This project is a frontend application built using **React.JS** and **Tailwind CSS** while leveraging JSONbin.io for data storage. My primary goal with this app was to learn more about using React hooks and practice pushing and retrieving data from an API. 
 
 
 ### `Component hierarchy and Design`
