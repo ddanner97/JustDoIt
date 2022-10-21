@@ -17,6 +17,7 @@ This project is a frontend application built using **React.JS** and **Tailwind C
 ## Check out my Notion Doc
 For more details on the steps towards building this project, including component logic and some of the blocker's I faced and how I solved them [click here to open my Notion Document](https://www.notion.so/To-Do-List-App-3617375c1a5048f396fb2ccc0c3e3e02)
 
+## Build Details
 ### `npm start`
 
 Runs the app in the development mode.\
